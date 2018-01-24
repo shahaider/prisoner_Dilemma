@@ -26,7 +26,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Cooperate" image="cooperate"/>
                                 <connections>
-                                    <action selector="cooperateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fkx-Uf-ITi"/>
+                                    <action selector="DecisionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xxy-ap-tTQ"/>
                                 </connections>
                             </button>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4iL-0x-W5v">
@@ -47,8 +47,8 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mY-wY-ZVh">
                                                     <rect key="frame" x="8" y="255" width="65" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                    <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IV-X4-fIH">
@@ -59,17 +59,17 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tzb-5F-Zrl">
-                                                    <rect key="frame" x="158" y="247" width="67" height="48"/>
+                                                    <rect key="frame" x="158" y="255" width="67" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                    <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                                    <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aj-0e-4sD">
                                                     <rect key="frame" x="163" y="96" width="62" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                    <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                                    <color key="textColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aex-Lu-hfc">
@@ -82,8 +82,8 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwH-jv-viS">
                                                     <rect key="frame" x="8" y="96" width="65" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                    <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                                    <color key="textColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00R-qt-5KN">
@@ -394,12 +394,12 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2C-Oa-lWB">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2C-Oa-lWB">
                                 <rect key="frame" x="228" y="552" width="104" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Defect" image="defect"/>
                                 <connections>
-                                    <action selector="defectButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Qz-2a-DYQ"/>
+                                    <action selector="DecisionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NVr-kS-DfG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ai7-vq-9Ab">
@@ -425,56 +425,58 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="player1_BottomLeft" destination="1mY-wY-ZVh" id="k3J-FK-Arf"/>
-                        <outlet property="player1_BottomRight" destination="Tzb-5F-Zrl" id="92A-6c-kP5"/>
-                        <outlet property="player1_Iteration10_Image" destination="nxr-JM-bNj" id="a07-VX-yG1"/>
-                        <outlet property="player1_Iteration1_Image" destination="oAw-zq-cEd" id="JH2-YW-3VD"/>
-                        <outlet property="player1_Iteration2_Image" destination="iSZ-Nk-FXL" id="ALm-3v-Bk8"/>
-                        <outlet property="player1_Iteration3_Image" destination="lGa-lF-kOa" id="2WV-sV-94P"/>
-                        <outlet property="player1_Iteration4_Image" destination="VSi-Af-06q" id="rBh-aQ-cL1"/>
-                        <outlet property="player1_Iteration5_Image" destination="N2n-mT-cEG" id="ctj-pc-nGP"/>
-                        <outlet property="player1_Iteration6_Image" destination="MOQ-xK-WRk" id="u3w-OT-HSf"/>
-                        <outlet property="player1_Iteration7_Image" destination="gld-Iq-w3g" id="PsA-Oa-6X9"/>
-                        <outlet property="player1_Iteration8_Image" destination="RlI-iw-XeQ" id="gI4-t9-WUD"/>
-                        <outlet property="player1_Iteration9_Image" destination="ZMr-25-VYF" id="H4N-AZ-jhm"/>
                         <outlet property="player1_Total" destination="ECh-PQ-dEy" id="kTe-7D-Xtt"/>
-                        <outlet property="player1_UpLeft" destination="EwH-jv-viS" id="toQ-2S-W73"/>
-                        <outlet property="player1_UpRight" destination="5aj-0e-4sD" id="POa-qg-aVm"/>
-                        <outlet property="player1_iteration10_Point" destination="mdc-9N-RBC" id="i75-qC-27r"/>
-                        <outlet property="player1_iteration1_Point" destination="npe-rD-8n8" id="lve-0N-svc"/>
-                        <outlet property="player1_iteration2_Point" destination="gza-Os-90q" id="orl-oj-j9h"/>
-                        <outlet property="player1_iteration3_Point" destination="DXh-Qm-gN3" id="Nk2-hh-nAs"/>
-                        <outlet property="player1_iteration4_Point" destination="a6p-Zh-Rxo" id="jws-77-HXe"/>
-                        <outlet property="player1_iteration5_Point" destination="AzU-n1-rbG" id="roP-N9-F6c"/>
-                        <outlet property="player1_iteration6_Point" destination="bZF-YT-xzl" id="qAA-Hz-49C"/>
-                        <outlet property="player1_iteration7_Point" destination="jt4-6m-IRR" id="769-xo-05U"/>
-                        <outlet property="player1_iteration8_Point" destination="Ayg-jh-wH0" id="zU8-XI-5DS"/>
-                        <outlet property="player1_iteration9_Point" destination="j6E-Yy-ug1" id="o5y-cL-lf2"/>
-                        <outlet property="player2_BottomLeft" destination="9IV-X4-fIH" id="4EE-AW-J6r"/>
-                        <outlet property="player2_BottomRight" destination="zAG-WW-z7P" id="OPh-tm-Ot2"/>
-                        <outlet property="player2_Iteration10_Image" destination="M0m-JW-Uxf" id="fBV-a2-DOX"/>
-                        <outlet property="player2_Iteration1_Image" destination="wXS-gl-c9S" id="Oxd-a5-2UV"/>
-                        <outlet property="player2_Iteration2_Image" destination="UVQ-RS-7jP" id="KQ6-Am-P9W"/>
-                        <outlet property="player2_Iteration3_Image" destination="g4Z-JF-9Yt" id="U6g-tV-ylG"/>
-                        <outlet property="player2_Iteration4_Image" destination="d4H-OS-UQD" id="56I-zP-J7g"/>
-                        <outlet property="player2_Iteration5_Image" destination="Ff1-3R-YJ8" id="HTT-EZ-tsX"/>
-                        <outlet property="player2_Iteration6_Image" destination="mUz-yw-ch1" id="pK9-dP-Pah"/>
-                        <outlet property="player2_Iteration7_Image" destination="iGt-Fs-i5I" id="YBu-mL-KcT"/>
-                        <outlet property="player2_Iteration8_Image" destination="8FP-YX-2cm" id="eZZ-jQ-5bp"/>
-                        <outlet property="player2_Iteration9_Image" destination="zcr-CH-TZm" id="5Sd-z2-ARh"/>
                         <outlet property="player2_Total" destination="afP-2X-Ch0" id="Jrp-cA-nc9"/>
-                        <outlet property="player2_UpLeft" destination="00R-qt-5KN" id="sw7-ps-j8p"/>
-                        <outlet property="player2_UpRight" destination="aex-Lu-hfc" id="PH2-Gv-Ykl"/>
-                        <outlet property="player2_iteration10_Point" destination="Puf-Ra-pU1" id="bhD-1s-59L"/>
-                        <outlet property="player2_iteration1_Point" destination="hpS-Nw-rMg" id="one-nf-HKx"/>
-                        <outlet property="player2_iteration2_Point" destination="iAp-A1-oZu" id="PpL-gu-RXk"/>
-                        <outlet property="player2_iteration3_Point" destination="cqh-4u-oXN" id="VNg-Ia-y0X"/>
-                        <outlet property="player2_iteration4_Point" destination="ChQ-n4-4lB" id="fxa-oT-qzj"/>
-                        <outlet property="player2_iteration5_Point" destination="mFh-uF-SqX" id="OMV-FF-plk"/>
-                        <outlet property="player2_iteration6_Point" destination="sVt-pD-bq2" id="r3V-q5-Dfk"/>
-                        <outlet property="player2_iteration7_Point" destination="bOg-u4-bWz" id="8Nh-Rb-AS2"/>
-                        <outlet property="player2_iteration8_Point" destination="1Bj-J6-ajR" id="Cys-xD-oq8"/>
-                        <outlet property="player2_iteration9_Point" destination="FJG-qO-unE" id="cdI-Uy-xm2"/>
+                        <outletCollection property="player1_Interation_Image" destination="oAw-zq-cEd" collectionClass="NSMutableArray" id="jrs-tV-wNk"/>
+                        <outletCollection property="player1_Interation_Score" destination="npe-rD-8n8" collectionClass="NSMutableArray" id="Q1h-vY-17j"/>
+                        <outletCollection property="player2_Interation_Image" destination="wXS-gl-c9S" collectionClass="NSMutableArray" id="emV-iO-N7l"/>
+                        <outletCollection property="player2_Interation_Score" destination="hpS-Nw-rMg" collectionClass="NSMutableArray" id="gtj-l3-WNg"/>
+                        <outletCollection property="player1_Interation_Image" destination="iSZ-Nk-FXL" collectionClass="NSMutableArray" id="7Ag-Rg-O2g"/>
+                        <outletCollection property="player1_Interation_Image" destination="lGa-lF-kOa" collectionClass="NSMutableArray" id="tI4-NQ-Osg"/>
+                        <outletCollection property="player1_Interation_Image" destination="VSi-Af-06q" collectionClass="NSMutableArray" id="Mga-YG-usV"/>
+                        <outletCollection property="player1_Interation_Image" destination="N2n-mT-cEG" collectionClass="NSMutableArray" id="FVU-Zg-KfB"/>
+                        <outletCollection property="player1_Interation_Image" destination="MOQ-xK-WRk" collectionClass="NSMutableArray" id="gz6-20-61B"/>
+                        <outletCollection property="player1_Interation_Image" destination="gld-Iq-w3g" collectionClass="NSMutableArray" id="921-tY-0mC"/>
+                        <outletCollection property="player1_Interation_Image" destination="RlI-iw-XeQ" collectionClass="NSMutableArray" id="kmY-Gi-r45"/>
+                        <outletCollection property="player1_Interation_Image" destination="ZMr-25-VYF" collectionClass="NSMutableArray" id="UOo-HM-ixE"/>
+                        <outletCollection property="player1_Interation_Image" destination="nxr-JM-bNj" collectionClass="NSMutableArray" id="asn-2o-HGS"/>
+                        <outletCollection property="player1_Interation_Score" destination="npe-rD-8n8" collectionClass="NSMutableArray" id="98w-lb-Vi6"/>
+                        <outletCollection property="player1_Interation_Score" destination="gza-Os-90q" collectionClass="NSMutableArray" id="KWB-D5-KHL"/>
+                        <outletCollection property="player1_Interation_Score" destination="DXh-Qm-gN3" collectionClass="NSMutableArray" id="Vc3-Cr-Hw5"/>
+                        <outletCollection property="player1_Interation_Score" destination="a6p-Zh-Rxo" collectionClass="NSMutableArray" id="mWT-lt-fiR"/>
+                        <outletCollection property="player1_Interation_Score" destination="AzU-n1-rbG" collectionClass="NSMutableArray" id="xex-5x-yKS"/>
+                        <outletCollection property="player1_Interation_Score" destination="bZF-YT-xzl" collectionClass="NSMutableArray" id="Xab-lc-jb1"/>
+                        <outletCollection property="player1_Interation_Score" destination="jt4-6m-IRR" collectionClass="NSMutableArray" id="VSg-G7-H4x"/>
+                        <outletCollection property="player1_Interation_Score" destination="Ayg-jh-wH0" collectionClass="NSMutableArray" id="8ER-0N-guG"/>
+                        <outletCollection property="player1_Interation_Score" destination="j6E-Yy-ug1" collectionClass="NSMutableArray" id="A93-Er-IHb"/>
+                        <outletCollection property="player1_Interation_Score" destination="mdc-9N-RBC" collectionClass="NSMutableArray" id="9QC-yg-zFW"/>
+                        <outletCollection property="player2_Interation_Image" destination="UVQ-RS-7jP" collectionClass="NSMutableArray" id="3s4-m9-Oin"/>
+                        <outletCollection property="player2_Interation_Image" destination="g4Z-JF-9Yt" collectionClass="NSMutableArray" id="arx-SV-6wx"/>
+                        <outletCollection property="player2_Interation_Image" destination="d4H-OS-UQD" collectionClass="NSMutableArray" id="GQX-Pe-xAb"/>
+                        <outletCollection property="player2_Interation_Image" destination="Ff1-3R-YJ8" collectionClass="NSMutableArray" id="iwU-z7-ac6"/>
+                        <outletCollection property="player2_Interation_Image" destination="mUz-yw-ch1" collectionClass="NSMutableArray" id="ajJ-7M-7IP"/>
+                        <outletCollection property="player2_Interation_Image" destination="iGt-Fs-i5I" collectionClass="NSMutableArray" id="IXY-eE-AUK"/>
+                        <outletCollection property="player2_Interation_Image" destination="8FP-YX-2cm" collectionClass="NSMutableArray" id="r6s-4K-DED"/>
+                        <outletCollection property="player2_Interation_Image" destination="zcr-CH-TZm" collectionClass="NSMutableArray" id="Ul4-Jh-0WE"/>
+                        <outletCollection property="player2_Interation_Image" destination="M0m-JW-Uxf" collectionClass="NSMutableArray" id="Eri-Kw-MUr"/>
+                        <outletCollection property="player2_Interation_Score" destination="iAp-A1-oZu" collectionClass="NSMutableArray" id="aQk-bm-Qrh"/>
+                        <outletCollection property="player2_Interation_Score" destination="cqh-4u-oXN" collectionClass="NSMutableArray" id="bVR-Ud-x5I"/>
+                        <outletCollection property="player2_Interation_Score" destination="ChQ-n4-4lB" collectionClass="NSMutableArray" id="2tH-YK-PWp"/>
+                        <outletCollection property="player2_Interation_Score" destination="mFh-uF-SqX" collectionClass="NSMutableArray" id="sCh-s1-bKW"/>
+                        <outletCollection property="player2_Interation_Score" destination="sVt-pD-bq2" collectionClass="NSMutableArray" id="26S-xU-zzb"/>
+                        <outletCollection property="player2_Interation_Score" destination="bOg-u4-bWz" collectionClass="NSMutableArray" id="HPL-LG-HYc"/>
+                        <outletCollection property="player2_Interation_Score" destination="1Bj-J6-ajR" collectionClass="NSMutableArray" id="DNM-xv-bcS"/>
+                        <outletCollection property="player2_Interation_Score" destination="FJG-qO-unE" collectionClass="NSMutableArray" id="Uuh-0T-5BU"/>
+                        <outletCollection property="player2_Interation_Score" destination="Puf-Ra-pU1" collectionClass="NSMutableArray" id="qmZ-4q-Zqt"/>
+                        <outletCollection property="upLeftSet" destination="EwH-jv-viS" collectionClass="NSMutableArray" id="YuU-zu-0pB"/>
+                        <outletCollection property="upLeftSet" destination="00R-qt-5KN" collectionClass="NSMutableArray" id="9Nu-f3-hB0"/>
+                        <outletCollection property="bottomLeftSet" destination="1mY-wY-ZVh" collectionClass="NSMutableArray" id="llU-bm-jGb"/>
+                        <outletCollection property="bottomLeftSet" destination="9IV-X4-fIH" collectionClass="NSMutableArray" id="HUM-ZW-k4h"/>
+                        <outletCollection property="upRightSet" destination="5aj-0e-4sD" collectionClass="NSMutableArray" id="9k1-Su-ocr"/>
+                        <outletCollection property="upRightSet" destination="aex-Lu-hfc" collectionClass="NSMutableArray" id="kbd-KQ-W3g"/>
+                        <outletCollection property="bottomRightSet" destination="Tzb-5F-Zrl" collectionClass="NSMutableArray" id="Pz3-sZ-jxh"/>
+                        <outletCollection property="bottomRightSet" destination="zAG-WW-z7P" collectionClass="NSMutableArray" id="HW4-NL-Qxw"/>
+                        <outletCollection property="DecisionButton" destination="k2C-Oa-lWB" collectionClass="NSMutableArray" id="ngE-ly-FFg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

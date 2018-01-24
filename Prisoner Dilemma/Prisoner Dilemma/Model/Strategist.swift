@@ -22,54 +22,31 @@
 
 import GameplayKit
 
-class Player: NSObject, GKGameModelPlayer {
-  
-  enum Value: Int {
-    case empty
-    case Human
-    case Machine
+struct Strategist {
+    // 1
+//    private let strategist: GKMinmaxStrategist = {
+//        let strategist = GKMinmaxStrategist()
+//        
+//        strategist.maxLookAheadDepth = 5
+//        strategist.randomSource = GKARC4RandomSource()
+//        
+//        return strategist
+//    }()
+//    
+//    // 2
+//    var board: Board {
+//        didSet {
+//            strategist.gameModel = Board
+//        }
+//    }
+//    
+//    // 3
+//    var bestCoordinate: CGPoint? {
+//        if let move = strategist.bestMove(for: Board.currentPlayer) as? Move {
+//            return move.coordinate
+//        }
+//        
+//        return nil
+//    }
     
-    
-    var name: String {
-      switch self {
-      
-      case .empty:
-        return ""
-        
-      case .Human:
-        return "Human"
-        
-      case .Machine:
-        return "Machine"
-      }
-    }
-  }
-  
-  var playerValue: Value
-  var name: String
-
-// ********************* declare player ID ***********************
-    var playerId: Int
-  
-    
-    // ***************** Create ALL Player Array *********************
-  static var allPlayers = [Player(.Human), Player(.Machine)]
-  
-    
-    //  ***************** Define Opponent Value *****************
-  var opponent: Player {
-    if playerValue == .Machine {
-      return Player.allPlayers[1]
-    } else {
-      return Player.allPlayers[0]
-    }
-  }
-  
-   // ***************** initilize Class *****************
-  init(_ value: Value) {
-    self.playerValue = value
-    playerId = value.rawValue
-    name = value.name
-  }
-  
 }

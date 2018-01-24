@@ -12,89 +12,65 @@ import GameplayKit
 class GameVC: UIViewController {
 
     // ************* VC variable *****************
-    var cooperatingPointScore = 0
-    var defectingPointScore = 0
-    var cooperate_defectMaxPoint = 0
-    var cooperate_defectMinPoint = 0
+    var defect_cooperarte = 0
+    var defect_defect = 0
+    var cooperate_cooperate = 0
+    var cooperate_defect = 0
     
     var displayPoint:[Int] = []
 
+    
+    let board  = Board()
     // ************* Outlet Variable ****************
     
     
     
-    //                              POINT DISPLAY LABEL POSITION
+    /*
+     
+     
+            POINT DISPLAY LABEL POSITION
+     
+     */
     
-    @IBOutlet weak var player1_UpLeft: UILabel!
-    @IBOutlet weak var player2_UpLeft: UILabel!
-    
-    @IBOutlet weak var player1_BottomLeft: UILabel!
-    @IBOutlet weak var player2_BottomLeft: UILabel!
-    
-    
-    @IBOutlet weak var player1_UpRight: UILabel!
-    @IBOutlet weak var player2_UpRight: UILabel!
-    
-    @IBOutlet weak var player1_BottomRight: UILabel!
-    @IBOutlet weak var player2_BottomRight: UILabel!
-    
-    //                              ITERATION IMAGE
 
+    
+    @IBOutlet var upLeftSet: [UILabel]!
+
+    @IBOutlet var bottomLeftSet: [UILabel]!
+  
+    @IBOutlet var upRightSet: [UILabel]!
+
+    @IBOutlet var bottomRightSet: [UILabel]!
+
+    
+    
+    
+    
+    
+    /*
+ 
+ 
+                ITERATION IMAGE
+
+    */
+    
+    
     // PLAYER 1:
     
-      @IBOutlet weak var player1_Iteration1_Image: UIImageView!
-      @IBOutlet weak var player1_Iteration2_Image: UIImageView!
-      @IBOutlet weak var player1_Iteration3_Image: UIImageView!
-      @IBOutlet weak var player1_Iteration4_Image: UIImageView!
-      @IBOutlet weak var player1_Iteration5_Image: UIImageView!
-      @IBOutlet weak var player1_Iteration6_Image: UIImageView!
-      @IBOutlet weak var player1_Iteration7_Image: UIImageView!
-      @IBOutlet weak var player1_Iteration8_Image: UIImageView!
-      @IBOutlet weak var player1_Iteration9_Image: UIImageView!
-      @IBOutlet weak var player1_Iteration10_Image: UIImageView!
+    @IBOutlet var player1_Interation_Image: [UIImageView]!
     
-    // PLAYER 2:
+    @IBOutlet var player1_Interation_Score: [UILabel]!
     
-      @IBOutlet weak var player2_Iteration1_Image: UIImageView!
-      @IBOutlet weak var player2_Iteration2_Image: UIImageView!
-      @IBOutlet weak var player2_Iteration3_Image: UIImageView!
-      @IBOutlet weak var player2_Iteration4_Image: UIImageView!
-      @IBOutlet weak var player2_Iteration5_Image: UIImageView!
-      @IBOutlet weak var player2_Iteration6_Image: UIImageView!
-      @IBOutlet weak var player2_Iteration7_Image: UIImageView!
-      @IBOutlet weak var player2_Iteration8_Image: UIImageView!
-      @IBOutlet weak var player2_Iteration9_Image: UIImageView!
-      @IBOutlet weak var player2_Iteration10_Image: UIImageView!
-    
-    
-    //                              ITERATION POINT ACHEIVED
-
-    // PLAYER 1:
-    @IBOutlet weak var player1_iteration1_Point: UILabel!
-    @IBOutlet weak var player1_iteration2_Point: UILabel!
-    @IBOutlet weak var player1_iteration3_Point: UILabel!
-    @IBOutlet weak var player1_iteration4_Point: UILabel!
-    @IBOutlet weak var player1_iteration5_Point: UILabel!
-    @IBOutlet weak var player1_iteration6_Point: UILabel!
-    @IBOutlet weak var player1_iteration7_Point: UILabel!
-    @IBOutlet weak var player1_iteration8_Point: UILabel!
-    @IBOutlet weak var player1_iteration9_Point: UILabel!
-    @IBOutlet weak var player1_iteration10_Point: UILabel!
-
     @IBOutlet weak var player1_Total: UILabel!
+    
+    
+    
     
     //PLAYER 2:
     
-    @IBOutlet weak var player2_iteration1_Point: UILabel!
-    @IBOutlet weak var player2_iteration2_Point: UILabel!
-    @IBOutlet weak var player2_iteration3_Point: UILabel!
-    @IBOutlet weak var player2_iteration4_Point: UILabel!
-    @IBOutlet weak var player2_iteration5_Point: UILabel!
-    @IBOutlet weak var player2_iteration6_Point: UILabel!
-    @IBOutlet weak var player2_iteration7_Point: UILabel!
-    @IBOutlet weak var player2_iteration8_Point: UILabel!
-    @IBOutlet weak var player2_iteration9_Point: UILabel!
-    @IBOutlet weak var player2_iteration10_Point: UILabel!
+    @IBOutlet var player2_Interation_Image: [UIImageView]!
+    
+    @IBOutlet var player2_Interation_Score: [UILabel]!
 
     @IBOutlet weak var player2_Total: UILabel!
     
@@ -112,9 +88,11 @@ class GameVC: UIViewController {
     }
 
     
+    
+    // Function that will Start Game
     func startGame(){
         
-        let scorePoints = BoardPoint()
+        let scorePoints = Board()
         self.displayPoint = scorePoints.display()
         
         print(self.displayPoint)
@@ -122,25 +100,34 @@ class GameVC: UIViewController {
         var sortedValue = self.displayPoint.sorted()
         print(sortedValue)
         
-        cooperate_defectMinPoint = sortedValue[0]
-        defectingPointScore = sortedValue[1]
-        cooperatingPointScore = sortedValue[2]
-        cooperate_defectMaxPoint = sortedValue[3]
+        cooperate_defect = sortedValue[0]
+        defect_defect = sortedValue[1]
+        cooperate_cooperate = sortedValue[2]
+        defect_cooperarte = sortedValue[3]
         
-        player1_UpLeft.text = String(cooperatingPointScore)
-        player1_BottomLeft.text = String(cooperate_defectMaxPoint)
-        player1_UpRight.text = String(cooperate_defectMinPoint)
-        player1_BottomRight.text = String(defectingPointScore)
+
         
-        player2_UpLeft.text = String(cooperatingPointScore)
-        player2_BottomLeft.text = String(cooperate_defectMinPoint)
-        player2_UpRight.text = String(cooperate_defectMaxPoint)
-        player2_BottomRight.text = String(defectingPointScore)
+        // FILLING POINTS TO RESPECTIVE PLACE ON BOARD
+        
+        upLeftSet[0].text = String(cooperate_cooperate)
+        upLeftSet[1].text = String(cooperate_cooperate)
+        
+        bottomLeftSet[0].text = String(defect_cooperarte)
+        bottomLeftSet[1].text = String(cooperate_defect)
+        
+        upRightSet[0].text = String(cooperate_defect)
+        upRightSet[1].text = String(defect_cooperarte)
+        
+        bottomRightSet[0].text = String(defect_defect)
+        bottomRightSet[1].text = String(defect_defect)
+        
+
     }
   
     
     @IBAction func REFRESH(_ sender: Any) {
         self.displayPoint.removeAll()
+        
         self.startGame()
         
     }
@@ -148,14 +135,86 @@ class GameVC: UIViewController {
     
     
     // ********** Action on pressing Cooperation ********
-    @IBAction func cooperateButton(_ sender: Any) {
+   
+    @IBAction func DecisionButton(_ sender: UIButton) {
         
+        if sender.tag == 0{
+            
+            // send Cooperate VALUE = 0
+        }
+        else{
+            
+            // send Defect Value = 1
+        }
     }
     
-    // ********** Action on pressing Defect ********
-
-    @IBAction func defectButton(_ sender: Any) {
+    
+    
+    fileprivate func updateGame() {
+        var gameOverTitle: String? = nil
         
+        if let winner = board.playerScoring, winner == board.currentPlayer {
+            gameOverTitle = "\(winner.name) Wins!"
+        } else if board.isComplete {
+            gameOverTitle = "Draw"
+        }
+        
+        if gameOverTitle != nil {
+            let alert = UIAlertController(title: gameOverTitle, message: nil, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Play Again", style: .default) { _ in
+                self.updateGame()
+            }
+            
+            alert.addAction(alertAction)
+            view?.window?.rootViewController?.present(alert, animated: true)
+            
+            return
+        }
+        
+        board.currentPlayer = board.currentPlayer.opponent
+        
+        
+        // A.I
+        if board.currentPlayer.playerValue == .Machine {
+//            processAIMove()
+        }
+    }
+    
+    
+    //                  " UPDATE GAME BOARD STATUS "
+    
+    fileprivate func updateBoard(taken x: Int) {
+        guard board[x] == .empty else { return }
+        
+        board[x] = board.currentPlayer.playerValue
+        
+//        let sizeValue = boardNode.size.width / 3 - 20
+//        let spriteSize = CGSize(
+//            width: sizeValue,
+//            height: sizeValue
+//        )
+//        
+//        var nodeImageName: String
+//        
+//        if board.currentPlayer.value == .zombie {
+//            nodeImageName = "zombie-head"
+//        } else {
+//            nodeImageName = "brain"
+//        }
+//        
+//        let pieceNode = SKSpriteNode(imageNamed: nodeImageName)
+//        pieceNode.size = CGSize(
+//            width: spriteSize.width / 2,
+//            height: spriteSize.height / 2
+//        )
+//        pieceNode.position = position(for: CGPoint(x: x, y: y))
+//        addChild(pieceNode)
+//        
+//        gamePieceNodes.append(pieceNode)
+//        
+//        pieceNode.run(SKAction.scale(by: 2, duration: 0.25))
+        
+        updateGame()
     }
     
 }
