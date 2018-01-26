@@ -30,7 +30,7 @@ class GameVC: UIViewController {
     let board  = Board()
     
     // A.I
-    var strategist: Strategist!
+    var strategist = Strategist()
     
     // ************* Outlet Variable ****************
     
@@ -95,7 +95,7 @@ class GameVC: UIViewController {
         player1_Total.isHidden = true
         player2_Total.isHidden = true
         self.startGame()
-
+    
         
     }
 
@@ -156,47 +156,9 @@ class GameVC: UIViewController {
 
     }
     
-  
-    
-    
-    
-//    fileprivate func updateGame() {
+
 //
-//
-//        if board.isComplete == false{
-//
-//            if board.currentPlayer.playerValue == .Machine {
-//                //            processAIMove()
-//            }
-//        }
-////
-//        //
-////        if let complet = board.playerScoring, winner == board.currentPlayer {
-////            gameOverTitle = "\(winner.name) Wins!"
-//
-//
-//
-////        else if board.isComplete {
-////            gameOverTitle = "Draw"
-////        }
-////
-////        if gameOverTitle != nil {
-////            let alert = UIAlertController(title: gameOverTitle, message: nil, preferredStyle: .alert)
-////            let alertAction = UIAlertAction(title: "Play Again", style: .default) { _ in
-////                self.updateGame()
-////            }
-////
-////            alert.addAction(alertAction)
-////            view?.window?.rootViewController?.present(alert, animated: true)
-////
-////            return
-////        }
-//
-//
-//
-//        // A.I
-//
-//    }
+
     
     
     //                  " UPDATE GAME BOARD STATUS "
@@ -209,13 +171,7 @@ class GameVC: UIViewController {
         
         if board.currentPlayer.playerValue == .Machine {
             
-            
-//                             processAIMove()
-            
-            
-         
-            
-            
+
             let combineDecision = board.checkPlayerDecision(playerOneDecision: humanAction, playTwoDecision: action,Score: self.sortedPoint )
             
            
@@ -225,7 +181,7 @@ class GameVC: UIViewController {
                 //
                 board.currentPlayer.playerValue = .Human
                 
-                print(combineDecision)
+//                print(combineDecision)
 
                 player1_Interation_Score[iteration].text = String(combineDecision.0)
                 
@@ -234,7 +190,6 @@ class GameVC: UIViewController {
                 if iteration == 9 {
                     self.generateResult()
                 }
-                
                 iteration += 1
                 
          
@@ -243,6 +198,8 @@ class GameVC: UIViewController {
 
                 
             }
+                
+                
             else{
                 
                 player2_Interation_Image[iteration].image = UIImage(named: "defect")
@@ -254,6 +211,8 @@ class GameVC: UIViewController {
                 player1_Interation_Score[iteration].text = String(combineDecision.0)
                 
                 player2_Interation_Score[iteration].text = String(combineDecision.1)
+                
+                
                 
                 if iteration == 9 {
                     self.generateResult()
@@ -279,7 +238,9 @@ class GameVC: UIViewController {
                 player1_Interation_Image[iteration].image = UIImage(named: "cooperate")
                 //
                 board.currentPlayer.playerValue = .Machine
-             
+
+                processAIMove()
+
 
             }
                 
@@ -288,8 +249,9 @@ class GameVC: UIViewController {
                 
                 player1_Interation_Image[iteration].image = UIImage(named: "defect")
                 board.currentPlayer.playerValue = .Machine
+                
+                processAIMove()
 
-                print(board.currentPlayer.playerValue)
 
             }
             
@@ -375,29 +337,43 @@ class GameVC: UIViewController {
     
     // A.I
     
-    fileprivate func processAIMove() {
-        // 1
-        DispatchQueue.global().async { [unowned self] in
-            // 2
-            let strategistTime = CFAbsoluteTimeGetCurrent()
-            guard let bestDecision = self.strategist.bestDecision else {
-                return
-            }
-            // 3
-            let delta = CFAbsoluteTimeGetCurrent() - strategistTime
-            
-            let aiTimeCeiling = 0.75
-            // 4
-            let delay = max(delta, aiTimeCeiling)
-            
-            // 5
-            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-//                self.updateBoard(taken: Int(bestCoordinate))
-//                self.board.checkPlayerDecision(playerDecision: bestDecision)
+     func processAIMove() {
+        
+        
+        // Test A.I
+        
+//        let move = arc4random() % 2 == 0 ? 0 : 1
+//
+//
+//        updateBoard(taken: Int(move))
+        
 
-                self.board.currentPlayer.playerValue = .Human
+        
+        
+        
+        
+        
+        let AIDecision : Int?
+//            AIDecision = strategist.MoveForPlayer()
+        AIDecision = strategist.bestMoveForPlayer(player: Player.allPlayers[0])
+
+        if let decision = AIDecision{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+
+//                let move = arc4random() % 2 == 0 ? 0 : 1
+
+
+                self.updateBoard(taken: Int(decision))//
+//                self.updateBoard(taken: decision)
+                //
+
             }
         }
+        
+
+       
+        
+        
     }
     
     

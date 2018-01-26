@@ -28,6 +28,8 @@ class Player: NSObject, GKGameModelPlayer {
   var playerValue: Value
   var name: String
 
+    
+    
 // ********************* declare player ID ***********************
     var playerId: Int
   
@@ -35,6 +37,14 @@ class Player: NSObject, GKGameModelPlayer {
     // ***************** Create ALL Player Array *********************
   static var allPlayers = [Player(.Human), Player(.Machine),Player(.empty) ]
   
+    // ***************** initilize Class *****************
+    init(_ value: Value) {
+        self.playerValue = value
+        playerId = value.rawValue
+        name = value.name
+    }  
+    
+    
     
     //  ***************** Define Opponent Value *****************
   var opponent: Player {
@@ -45,11 +55,6 @@ class Player: NSObject, GKGameModelPlayer {
     }
   }
   
-   // ***************** initilize Class *****************
-  init(_ value: Value) {
-    self.playerValue = value
-    playerId = value.rawValue
-    name = value.name
-  }
+   
   
 }

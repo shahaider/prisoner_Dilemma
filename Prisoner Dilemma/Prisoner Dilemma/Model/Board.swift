@@ -14,9 +14,12 @@ class Board : NSObject{
 
     
     // VARIABLE TO BE USE IN THIS CLASS
-    var currentPlayer = Player.allPlayers[arc4random() % 2 == 0 ? 0 : 1]
+//    var currentPlayer = Player.allPlayers[arc4random() % 2 == 0 ? 0 : 1]
+        var currentPlayer = Player.allPlayers[0]
+   
     var displayScore = [0,0,0,0]
 
+    var iterationNumber = 0
     var humanSum = 0
     var machineSum = 0
     
@@ -26,7 +29,7 @@ class Board : NSObject{
     let ruleSystem = GKRuleSystem()
     
 //    fileprivate var values: [PlayerScore.Score] = [.empty,.empty,.empty,.empty,.empty,.empty,.empty,.empty,.empty,.empty]
-    fileprivate var values: [Player.Value] = [.empty,.empty,.empty,.empty,.empty,.empty,.empty,.empty,.empty,.empty]
+    fileprivate var values: [Player.Value] = []
 
     
     subscript(decision: Int) -> Player.Value {
@@ -83,7 +86,7 @@ class Board : NSObject{
     // ******************** Game SCORING CONDITION **********************************
     
     
-    var playerScoring: PlayerScore? {
+    var playerScoring: Int {
 
         /*
          GKRULESYSTEM IMPLEMENTATION
@@ -98,7 +101,7 @@ class Board : NSObject{
         ruleSystem.add(GKRule(predicate: playerDefect, retractingFact: "decision" as NSObjectProtocol, grade: 1))
 
         
-        return nil
+        return 0
     }
     
     
@@ -118,7 +121,7 @@ class Board : NSObject{
         
         
         
-        var combineDecision : (Int,Int)
+        var _ : (Int,Int)
         
         
         
@@ -160,7 +163,7 @@ class Board : NSObject{
            return(defect_defect,defect_defect)
 
         }
-        
+        self.iterationNumber += 1
         return (0,0)
         
         
@@ -209,47 +212,64 @@ class Board : NSObject{
 
 
 // ******************A.I PART
+
+
 extension Board: GKGameModel{
+    var players: [GKGameModelPlayer]? {
+  
+        return Player.allPlayers
+
+    }
+    
+    
+    
+    var activePlayer: GKGameModelPlayer? {
+        
+        return currentPlayer.opponent
+
+    }
+    
+    
+    
+    
+    func setGameModel(_ gameModel: GKGameModel) {
+        if let board = gameModel as? Board{
+        values = board.values
+                    }
+    }
+    
+    
     
     
     func gameModelUpdates(for player: GKGameModelPlayer) -> [GKGameModelUpdate]? {
-        // 1
-        guard let player = player as? Player else {
+        guard player is Player else {
             return nil
         }
         
-        if isWin(for: player) {
-            return nil
+        var moves : [GKGameModelUpdate] = []
+        
+        if isComplete(iteration: iterationNumber ) == false{
+             moves = [Move]()
         }
-        
-        var moves = [Move]()
-        
-        // 2
-//        for x in 0..<values.count {
-//            for y in 0..<values[x].count {
-//                let position = CGPoint(x: x, y: y)
-//                if canMove(at: position) {
-//                    moves.append(Move(position))
-//                }
-//            }
-//        }
-        
         return moves
-        
     }
+    
     
     
     
     
     func apply(_ gameModelUpdate: GKGameModelUpdate) {
         guard  let move = gameModelUpdate as? Move else {
-            return
-        }
+                        return
+                    }
         
-        // 3
-        self[Int(move.decision)] = currentPlayer.playerValue
-        currentPlayer = currentPlayer.opponent
+                    // 3
+                    self[Int(move.decision)] = currentPlayer.playerValue
+                    currentPlayer = currentPlayer.opponent
     }
+    
+    
+    
     
     
     func copy(with zone: NSZone? = nil) -> Any {
@@ -258,50 +278,9 @@ extension Board: GKGameModel{
         return copyme
     }
     
-    var players: [GKGameModelPlayer]?{
-        
-        return Player.allPlayers
-    }
-    
-    var activePlayer: GKGameModelPlayer?{
-        return currentPlayer
-    }
-    
-    func setGameModel(_ gameModel: GKGameModel) {
-        if let board = gameModel as? Board{
-            values = board.values
-        }
-    }
-    
-    func isWin(for player: GKGameModelPlayer) -> Bool {
-        guard let player = player as? Player else {
-            return false
-        }
-        
-        if let winner = winningPlayer {
-            return player == winner
-        } else {
-            return false
-        }
-    }
     
     
-    
-    
-    func score(for player: GKGameModelPlayer) -> Int {
-        guard let player = player as? Player else {
-            return Move.Decision.none.rawValue
-        }
-        
-        if isWin(for: player) {
-            return Move.Decision.cooperate.rawValue
-        } else {
-            return Move.Decision.defect.rawValue
-        }
-    }
     
 }
-
-
  
 
