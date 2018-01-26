@@ -9,24 +9,24 @@
 import GameplayKit
 
 
-class Move: NSObject{
+class Move: NSObject, GKGameModelUpdate{
     
     
     // ***************** enum for Scoring Conditions *****************
-    enum Score : Int{
-        case cooperate_cooperate
-        case cooperate_defect
-        case defect_defect
-        case defect_cooperate
+    enum Decision : Int{
+        case cooperate
+        case defect
+        case none
+       
         
     }
     
     
     
     var value : Int = 0
-    var decision : String
+    var decision : Int
     
-    init(Decision: String){
+    init(Decision: Int){
         self.decision = Decision
     }
     

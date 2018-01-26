@@ -18,9 +18,20 @@ class GameVC: UIViewController {
     var cooperate_defect = 0
     
     var displayPoint:[Int] = []
+    var sortedPoint:[Int] = []
 
+    var iteration = 0
+    var humanAction = 0
+    
+    
+    var player1Move: [Int] = []
+    var player2Move : [Int] = []
     
     let board  = Board()
+    
+    // A.I
+    var strategist: Strategist!
+    
     // ************* Outlet Variable ****************
     
     
@@ -81,7 +92,8 @@ class GameVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        player1_Total.isHidden = true
+        player2_Total.isHidden = true
         self.startGame()
 
         
@@ -95,15 +107,16 @@ class GameVC: UIViewController {
         let scorePoints = Board()
         self.displayPoint = scorePoints.display()
         
-        print(self.displayPoint)
+//        print(self.displayPoint)
         
-        var sortedValue = self.displayPoint.sorted()
-        print(sortedValue)
+        sortedPoint = self.displayPoint.sorted()
+
+        //        print(sortedPoint)
         
-        cooperate_defect = sortedValue[0]
-        defect_defect = sortedValue[1]
-        cooperate_cooperate = sortedValue[2]
-        defect_cooperarte = sortedValue[3]
+        cooperate_defect = sortedPoint[0]
+        defect_defect = sortedPoint[1]
+        cooperate_cooperate = sortedPoint[2]
+        defect_cooperarte = sortedPoint[3]
         
 
         
@@ -121,12 +134,198 @@ class GameVC: UIViewController {
         bottomRightSet[0].text = String(defect_defect)
         bottomRightSet[1].text = String(defect_defect)
         
+        
+        
+        
+        board.currentPlayer.playerValue = .Human
 
     }
   
     
     @IBAction func REFRESH(_ sender: Any) {
+        self.reset()
+    }
+    
+    
+    
+    // ********** Action on pressing Cooperation ********
+   
+    @IBAction func decisionButton(_ sender: UIButton) {
+
+            updateBoard(taken: sender.tag)
+
+    }
+    
+  
+    
+    
+    
+//    fileprivate func updateGame() {
+//
+//
+//        if board.isComplete == false{
+//
+//            if board.currentPlayer.playerValue == .Machine {
+//                //            processAIMove()
+//            }
+//        }
+////
+//        //
+////        if let complet = board.playerScoring, winner == board.currentPlayer {
+////            gameOverTitle = "\(winner.name) Wins!"
+//
+//
+//
+////        else if board.isComplete {
+////            gameOverTitle = "Draw"
+////        }
+////
+////        if gameOverTitle != nil {
+////            let alert = UIAlertController(title: gameOverTitle, message: nil, preferredStyle: .alert)
+////            let alertAction = UIAlertAction(title: "Play Again", style: .default) { _ in
+////                self.updateGame()
+////            }
+////
+////            alert.addAction(alertAction)
+////            view?.window?.rootViewController?.present(alert, animated: true)
+////
+////            return
+////        }
+//
+//
+//
+//        // A.I
+//
+//    }
+    
+    
+    //                  " UPDATE GAME BOARD STATUS "
+    
+    fileprivate func updateBoard(taken action: Int) {
+
+        let checkIterationCount = board.isComplete(iteration: iteration)
+        
+       if checkIterationCount == false  {
+        
+        if board.currentPlayer.playerValue == .Machine {
+            
+            
+//                             processAIMove()
+            
+            
+         
+            
+            
+            let combineDecision = board.checkPlayerDecision(playerOneDecision: humanAction, playTwoDecision: action,Score: self.sortedPoint )
+            
+           
+            
+            if action == 0{
+                player2_Interation_Image[iteration].image = UIImage(named: "cooperate")
+                //
+                board.currentPlayer.playerValue = .Human
+                
+                print(combineDecision)
+
+                player1_Interation_Score[iteration].text = String(combineDecision.0)
+                
+                player2_Interation_Score[iteration].text = String(combineDecision.1)
+                
+                if iteration == 9 {
+                    self.generateResult()
+                }
+                
+                iteration += 1
+                
+         
+                
+                
+
+                
+            }
+            else{
+                
+                player2_Interation_Image[iteration].image = UIImage(named: "defect")
+                
+                board.currentPlayer.playerValue = .Human
+                
+                print(combineDecision)
+
+                player1_Interation_Score[iteration].text = String(combineDecision.0)
+                
+                player2_Interation_Score[iteration].text = String(combineDecision.1)
+                
+                if iteration == 9 {
+                    self.generateResult()
+                }
+                iteration += 1
+
+                
+            }
+            
+            
+            
+            //**************************************
+            
+                        }
+//
+            
+            
+        else{
+            
+            humanAction = action
+            
+            if action == 0{
+                player1_Interation_Image[iteration].image = UIImage(named: "cooperate")
+                //
+                board.currentPlayer.playerValue = .Machine
+             
+
+            }
+                
+                
+            else{
+                
+                player1_Interation_Image[iteration].image = UIImage(named: "defect")
+                board.currentPlayer.playerValue = .Machine
+
+                print(board.currentPlayer.playerValue)
+
+            }
+            
+            
+        }
+  
+        
+    }
+        
+       
+    }
+    
+    
+    func reset(){
+        
+        self.iteration = 0
+        
         self.displayPoint.removeAll()
+        board.humanSum = 0
+        board.machineSum = 0
+      
+        
+        for loop in 0 ... 9{
+            
+            self.player1_Interation_Image[loop].image =  UIImage(named: "blank")
+            self.player2_Interation_Image[loop].image =  UIImage(named: "blank")
+            
+            self.player1_Interation_Score[loop].text = "0"
+            self.player2_Interation_Score[loop].text = "0"
+
+        }
+        
+        player1_Total.isHidden = true
+        player2_Total.isHidden = true
+
+        
         
         self.startGame()
         
@@ -134,87 +333,72 @@ class GameVC: UIViewController {
     
     
     
-    // ********** Action on pressing Cooperation ********
-   
-    @IBAction func DecisionButton(_ sender: UIButton) {
+    func generateResult(){
         
-        if sender.tag == 0{
-            
-            // send Cooperate VALUE = 0
+        print("*********** DONE  ***************")
+        
+        var winnerid : Int = 2
+        
+        player1_Total.text = String(board.humanSum)
+        player2_Total.text = String(board.machineSum)
+        
+        player1_Total.isHidden = false
+        player2_Total.isHidden = false
+        
+        if board.humanSum > board.machineSum{
+            winnerid = 0
+        }
+        else if board.humanSum < board.machineSum{
+            winnerid = 1
         }
         else{
-            
-            // send Defect Value = 1
-        }
-    }
-    
-    
-    
-    fileprivate func updateGame() {
-        var gameOverTitle: String? = nil
-        
-        if let winner = board.playerScoring, winner == board.currentPlayer {
-            gameOverTitle = "\(winner.name) Wins!"
-        } else if board.isComplete {
-            gameOverTitle = "Draw"
-        }
-        
-        if gameOverTitle != nil {
-            let alert = UIAlertController(title: gameOverTitle, message: nil, preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "Play Again", style: .default) { _ in
-                self.updateGame()
-            }
-            
-            alert.addAction(alertAction)
-            view?.window?.rootViewController?.present(alert, animated: true)
+            let alertVC = UIAlertController(title: "Result", message: "DRAW", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Play Again", style: .default, handler: { (action) in
+                
+                self.reset()
+            })
+            alertVC.addAction(alertAction)
+            view?.window?.rootViewController?.present(alertVC, animated: true)
             
             return
         }
         
-        board.currentPlayer = board.currentPlayer.opponent
-        
-        
-        // A.I
-        if board.currentPlayer.playerValue == .Machine {
-//            processAIMove()
+        let alertVC = UIAlertController(title: "Result", message: String(Player.allPlayers[winnerid].name), preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Play Again", style: .default, handler: { (action) in
+            
+            self.reset()
+        })
+        alertVC.addAction(alertAction)
+        view?.window?.rootViewController?.present(alertVC, animated: true)
+    
+    }
+    
+    // A.I
+    
+    fileprivate func processAIMove() {
+        // 1
+        DispatchQueue.global().async { [unowned self] in
+            // 2
+            let strategistTime = CFAbsoluteTimeGetCurrent()
+            guard let bestDecision = self.strategist.bestDecision else {
+                return
+            }
+            // 3
+            let delta = CFAbsoluteTimeGetCurrent() - strategistTime
+            
+            let aiTimeCeiling = 0.75
+            // 4
+            let delay = max(delta, aiTimeCeiling)
+            
+            // 5
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+//                self.updateBoard(taken: Int(bestCoordinate))
+//                self.board.checkPlayerDecision(playerDecision: bestDecision)
+
+                self.board.currentPlayer.playerValue = .Human
+            }
         }
     }
     
-    
-    //                  " UPDATE GAME BOARD STATUS "
-    
-    fileprivate func updateBoard(taken x: Int) {
-        guard board[x] == .empty else { return }
-        
-        board[x] = board.currentPlayer.playerValue
-        
-//        let sizeValue = boardNode.size.width / 3 - 20
-//        let spriteSize = CGSize(
-//            width: sizeValue,
-//            height: sizeValue
-//        )
-//        
-//        var nodeImageName: String
-//        
-//        if board.currentPlayer.value == .zombie {
-//            nodeImageName = "zombie-head"
-//        } else {
-//            nodeImageName = "brain"
-//        }
-//        
-//        let pieceNode = SKSpriteNode(imageNamed: nodeImageName)
-//        pieceNode.size = CGSize(
-//            width: spriteSize.width / 2,
-//            height: spriteSize.height / 2
-//        )
-//        pieceNode.position = position(for: CGPoint(x: x, y: y))
-//        addChild(pieceNode)
-//        
-//        gamePieceNodes.append(pieceNode)
-//        
-//        pieceNode.run(SKAction.scale(by: 2, duration: 0.25))
-        
-        updateGame()
-    }
     
 }

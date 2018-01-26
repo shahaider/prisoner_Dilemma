@@ -17,7 +17,7 @@
 		F260E41F2018798F00112D56 /* Strategist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260E41E2018798F00112D56 /* Strategist.swift */; };
 		F260E42120187DFD00112D56 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260E42020187DFD00112D56 /* Player.swift */; };
 		F260E4232018E11200112D56 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260E4222018E11200112D56 /* Board.swift */; };
-		F260E4252018E57D00112D56 /* PlayerScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260E4242018E57D00112D56 /* PlayerScore.swift */; };
+		F2C37986201B2FE400DEAB12 /* PlayerScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C37985201B2FE300DEAB12 /* PlayerScore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		F260E41E2018798F00112D56 /* Strategist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strategist.swift; sourceTree = "<group>"; };
 		F260E42020187DFD00112D56 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		F260E4222018E11200112D56 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
-		F260E4242018E57D00112D56 /* PlayerScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScore.swift; sourceTree = "<group>"; };
+		F2C37985201B2FE300DEAB12 /* PlayerScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerScore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 				F260E41C20184EED00112D56 /* Rules.swift */,
 				F260E41E2018798F00112D56 /* Strategist.swift */,
 				F260E4222018E11200112D56 /* Board.swift */,
-				F260E4242018E57D00112D56 /* PlayerScore.swift */,
+				F2C37985201B2FE300DEAB12 /* PlayerScore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,7 +183,7 @@
 				F2002D4720123B1800DF83BC /* AppDelegate.swift in Sources */,
 				F260E42120187DFD00112D56 /* Player.swift in Sources */,
 				F260E41F2018798F00112D56 /* Strategist.swift in Sources */,
-				F260E4252018E57D00112D56 /* PlayerScore.swift in Sources */,
+				F2C37986201B2FE400DEAB12 /* PlayerScore.swift in Sources */,
 				F260E4232018E11200112D56 /* Board.swift in Sources */,
 				F260E41D20184EED00112D56 /* Rules.swift in Sources */,
 			);
