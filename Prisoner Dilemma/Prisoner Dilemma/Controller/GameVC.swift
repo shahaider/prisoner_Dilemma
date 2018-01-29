@@ -174,6 +174,7 @@ class GameVC: UIViewController {
 
             let combineDecision = board.checkPlayerDecision(playerOneDecision: humanAction, playTwoDecision: action,Score: self.sortedPoint )
             
+            
            
             
             if action == 0{
@@ -297,7 +298,6 @@ class GameVC: UIViewController {
     
     func generateResult(){
         
-        print("*********** DONE  ***************")
         
         var winnerid : Int = 2
         
@@ -334,37 +334,16 @@ class GameVC: UIViewController {
         view?.window?.rootViewController?.present(alertVC, animated: true)
     
     }
-    
-    // A.I
-    
+        
      func processAIMove() {
-        
-        
-        // Test A.I
-        
-//        let move = arc4random() % 2 == 0 ? 0 : 1
-//
-//
-//        updateBoard(taken: Int(move))
-        
 
-        
-        
-        
-        
-        
         let AIDecision : Int?
-//            AIDecision = strategist.MoveForPlayer()
         AIDecision = strategist.bestMoveForPlayer(player: Player.allPlayers[0])
 
         if let decision = AIDecision{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 
-//                let move = arc4random() % 2 == 0 ? 0 : 1
-
-
-                self.updateBoard(taken: Int(decision))//
-//                self.updateBoard(taken: decision)
+                self.updateBoard(taken: Int(decision))
                 //
 
             }

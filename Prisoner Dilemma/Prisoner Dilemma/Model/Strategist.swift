@@ -7,7 +7,7 @@ import GameplayKit
 class Strategist {
 
     let strategist = GKMinmaxStrategist()
-
+let board = Board()
     func createStrategist(){
         strategist.maxLookAheadDepth = 0
         strategist.randomSource = GKARC4RandomSource()
@@ -16,26 +16,31 @@ class Strategist {
 
     func bestMoveForPlayer(player: Player) -> Int{
 
-        let movevalue = 1
-        if let AIMove = strategist.bestMove(for: player) {
-            let defaultMove = AIMove.value
-//            movevalue = arc4random() % 2 == 0 ? 0: 1
-            return defaultMove
+        
+        var AIMoves = Move.playerMove()
+        
+        if let opponent = strategist.bestMove(for: player) as? Move {
+           
+            AIMoves = opponent.decision
+            
+            return AIMoves
 
                     }
-        return movevalue
-
-
-    }
-
-    func MoveForPlayer() -> Int
-    {
-        var move : Int = 0
-        move = arc4random() % 2 == 0 ? 0 : 1
-
-        return move
+        
+        return AIMoves
 
     }
+
+    
+    // TESTING Player Move with reforcement basis.
+//    func MoveForPlayer() -> Int
+//    {
+//        var move : Int = 0
+//        move = arc4random() % 2 == 0 ? 0 : 1
+//
+//        return move
+//
+//    }
 //
 ////
 ////

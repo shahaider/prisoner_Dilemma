@@ -14,9 +14,8 @@ class Move: NSObject, GKGameModelUpdate{
     
     // ***************** enum for Scoring Conditions *****************
     enum Decision : Int{
-        case cooperate
+        case cooperate = 0
         case defect
-        case none
        
         
     }
@@ -28,6 +27,16 @@ class Move: NSObject, GKGameModelUpdate{
     
     init(Decision: Int){
         self.decision = Decision
+    }
+     
+    
+    
+    static func playerMove() -> Int{
+        
+        let move = GKRandomSource()
+        let moveDist = GKRandomDistribution(randomSource: move, lowestValue: 0, highestValue: 1)
+        
+        return Int(moveDist.nextInt())
     }
     
     

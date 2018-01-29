@@ -14,8 +14,8 @@ class Board : NSObject{
 
     
     // VARIABLE TO BE USE IN THIS CLASS
-//    var currentPlayer = Player.allPlayers[arc4random() % 2 == 0 ? 0 : 1]
-        var currentPlayer = Player.allPlayers[0]
+    var currentPlayer = Player.allPlayers[arc4random() % 2 == 0 ? 0 : 1]
+//        var currentPlayer = Player.allPlayers[0]
    
     var displayScore = [0,0,0,0]
 
@@ -186,7 +186,7 @@ class Board : NSObject{
         self.humanSum += humanScore
         self.machineSum += machineScore
         
-        print("human: \(self.humanSum) & machine: \(self.machineSum)")
+//        print("human: \(self.humanSum) & machine: \(self.machineSum)")
         
     }
     
@@ -210,10 +210,6 @@ class Board : NSObject{
 }
 
 
-
-// ******************A.I PART
-
-
 extension Board: GKGameModel{
     var players: [GKGameModelPlayer]? {
   
@@ -225,7 +221,7 @@ extension Board: GKGameModel{
     
     var activePlayer: GKGameModelPlayer? {
         
-        return currentPlayer.opponent
+        return Player.allPlayers[1]
 
     }
     
@@ -263,9 +259,8 @@ extension Board: GKGameModel{
                         return
                     }
         
-                    // 3
-                    self[Int(move.decision)] = currentPlayer.playerValue
                     currentPlayer = currentPlayer.opponent
+                    self[Int(move.decision)] = currentPlayer.playerValue
     }
     
     
